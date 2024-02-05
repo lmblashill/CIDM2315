@@ -1,21 +1,25 @@
-﻿using System.Globalization;
-
-namespace Lecture3;
+﻿namespace hw2424;
 
 class Program
 {
-    
     static void Main()
     {
-  Console.WriteLine("please input an integer");
-  int N = Convert.ToInt16(Console.ReadLine());
-  for(int i = 0; i < N; i++)
-  {
-    for (int j =0; j < N; j++)
     {
-        Console.Write("#");
+        Console.WriteLine("please input number");
+        int n = Convert.ToInt16(Console.ReadLine());
+        int a=0;
+        for (int i =1; i <= n; i++) {
+            if (n % i == 0){
+                a++;
+            }
+            }
+        if (a==2) {
+            Console.WriteLine("{0} is a Prime Number", n);
+        }else {
+            Console.WriteLine("Not a Prime Number");
+        }
+        Console.ReadLine();
+        }
+        }
+        
     }
-  Console.WriteLine();
-  }
-}
-}
