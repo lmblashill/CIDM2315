@@ -1,0 +1,23 @@
+using System.Dynamic;
+using System.Xml;
+
+namespace homework5;
+
+class Program
+
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Please input integer");
+         int N = Convert.ToInt16(Console.ReadLine());
+        Console.WriteLine("Please input  second integer");
+        int G =Convert.ToInt16(Console.ReadLine());
+    if(N >G) {
+        Console.WriteLine($"The largest number is {N}");
+    }
+    else
+        Console.WriteLine($"The largest number is {G}");
+    }
+}
+
+
