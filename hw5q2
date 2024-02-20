@@ -1,0 +1,29 @@
+
+class Program
+
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Please input integer");
+         int N = Convert.ToInt16(Console.ReadLine());
+        Console.WriteLine("Please input  second integer");
+        int G =Convert.ToInt16(Console.ReadLine());
+        Console.WriteLine("Please input 3rd integer");
+        int F =Convert.ToInt16(Console.ReadLine());
+        Console.WriteLine("Please input 4th integer");
+        int H =Convert.ToInt16(Console.ReadLine());
+
+    int max = N;
+    if (G > max)
+        max =G;
+    if (F> max)
+        max = F;
+    if (H > max)
+        max = H;
+
+        Console.WriteLine("The largest number is: " + max);
+
+    }
+}
+    
+ 
