@@ -1,0 +1,65 @@
+using System;
+
+class Customer
+{
+    private int cus_id;
+    public string cus_name;
+    public int cus_age;
+
+    // Constructor used to assign id, name, and age to the customer when an object is created
+    public Customer(int cus_id, string cus_name, int cus_age)
+    {
+        this.cus_id = cus_id;
+        this.cus_name = cus_name;
+        this.cus_age = cus_age;
+    }
+
+    // Method used to change customer id
+    public void ChangeID(int new_id)
+    {
+        cus_id = new_id;
+    }
+
+    // Method used to print customer information (id, name, age)
+    public void PrintCusInfo()
+    {
+        Console.WriteLine($"Customer ID: {cus_id}, Name: {cus_name}, Age: {cus_age}");
+    }
+
+    // Method used to compare the current object's age with objCustomer's age
+    // Then print out the cus_name of the older customer
+    public void CompareAge(Customer objCustomer)
+    {
+        if (this.cus_age > objCustomer.cus_age)
+        {
+            Console.WriteLine($"{this.cus_name} is older than {objCustomer.cus_name}");
+        }
+        else if (this.cus_age < objCustomer.cus_age)
+        {
+            Console.WriteLine($"{this.cus_name} is younger than {objCustomer.cus_name}");
+        }
+        else
+        {
+            Console.WriteLine($"{this.cus_name} and {objCustomer.cus_name} are of the same age.");
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Example usage of the Customer class
+        Customer customer1 = new Customer(1, "Alice", 25);
+        Customer customer2 = new Customer(2, "Bob", 30);
+
+        customer1.PrintCusInfo();
+        customer2.PrintCusInfo();
+
+        customer1.CompareAge(customer2);
+
+        // Changing the ID of customer1
+        customer1.ChangeID(101);
+        customer1.PrintCusInfo();
+    }
+}
