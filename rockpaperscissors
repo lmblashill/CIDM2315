@@ -1,0 +1,87 @@
+using System;
+
+class HumanPlayer
+{
+    private int points;
+
+    public HumanPlayer(int initial)
+    {
+        points = initial;
+    }
+
+    public int GetPoints()
+    {
+        return points;
+    }
+
+    public void WinRound()
+    {
+        points += 5;
+    }
+
+    public void LoseRound()
+    {
+        points -= 5;
+    }
+
+    public string HumanDecision()
+    {
+        Console.Write("Choose Rock, Paper, or Scissors: ");
+        return Console.ReadLine();
+    }
+}
+
+class ComputerPlayer
+{
+    public string ComputerDecision()
+    {
+        Random rnd = new Random();
+        string[] choices = { "Rock", "Paper", "Scissors" };
+        int rndNum = rnd.Next(0, 3);
+        return choices[rndNum];
+    }
+}
+
+class RockPaperScissors
+{
+    static void Main(string[] args)
+    {
+        HumanPlayer human = new HumanPlayer(5);
+        ComputerPlayer computer = new ComputerPlayer();
+
+        while (human.GetPoints() > 0)
+        {
+            Console.WriteLine($"Human points: {human.GetPoints()}");
+            string humanChoice = human.HumanDecision();
+            string computerChoice = computer.ComputerDecision();
+
+            Console.WriteLine($"Computer chose: {computerChoice}");
+
+            if ((humanChoice == "Rock" && computerChoice == "Scissors") ||
+                (humanChoice == "Paper" && computerChoice == "Rock") ||
+                (humanChoice == "Scissors" && computerChoice == "Paper"))
+            {
+                Console.WriteLine("You win!");
+                human.WinRound();
+            }
+            else if (humanChoice == computerChoice)
+            {
+                Console.WriteLine("It's a tie!");
+            }
+            else
+            {
+                Console.WriteLine("You lose!");
+                human.LoseRound();
+            }
+
+            Console.Write("Play again? (y/n): ");
+            if (Console.ReadLine().ToLower() != "y")
+            {
+                break;
+            }
+        }
+
+        Console.WriteLine("Game over!");
+    }
+}
+
